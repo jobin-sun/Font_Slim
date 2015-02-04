@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<!-- saved from url=(0017)http://localhost/ -->
+<script language="JavaScript" src="../../../../displayToc.js"></script>
+<script language="JavaScript" src="../../../../tocParas.js"></script>
+<script language="JavaScript" src="../../../../tocTab.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../scineplex.css">
+<title></title>
+<link rel="stylesheet" href="../../../../Active.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+  <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+  <li><a href="#See-also">See also</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<p>Font::TTF::Dumper - Debug dump of a font datastructure, avoiding recursion on &#39; PARENT&#39;</p>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<pre><code>    <span class="variable">Font::TTF::Dumper</span><span class="operator">;</span>
+    
+    <span class="comment"># Print a table from the font structure:</span>
+    <span class="keyword">print</span> <span class="variable">ttfdump</span><span class="operator">(</span><span class="variable">$font</span><span class="operator">-&gt;</span><span class="operator">{</span><span class="variable">$tag</span><span class="operator">}</span><span class="operator">);</span>
+    
+    <span class="comment"># Print font table with name</span>
+    <span class="keyword">print</span> <span class="variable">ttfdump</span><span class="operator">(</span><span class="variable">$font</span><span class="operator">-&gt;</span><span class="operator">{</span><span class="string">'head'</span><span class="operator">}</span><span class="operator">,</span> <span class="string">'head'</span><span class="operator">);</span>
+    
+    <span class="comment"># Print one glyph's data:</span>
+    <span class="keyword">print</span> <span class="variable">ttfdump</span><span class="operator">(</span><span class="variable">$font</span><span class="operator">-&gt;</span><span class="operator">{</span><span class="string">'loca'</span><span class="operator">}</span><span class="operator">-&gt;</span><span class="variable">read</span><span class="operator">-&gt;</span><span class="operator">{</span><span class="string">'glyphs'</span><span class="operator">}[</span><span class="variable">$gid</span><span class="operator">]</span><span class="operator">,</span> <span class="string">"glyph_</span><span class="variable">$gid</span><span class="string">"</span><span class="operator">);</span>
+</code></pre>
+
+<h1 id="DESCRIPTION">DESCRIPTION</h1>
+
+<p>Font::TTF data structures are trees created from hashes and arrays. When trying to figure out how the structures work, sometimes it is helpful to use Data::Dumper on them. However, many of the object structures have &#39; PARENT&#39; links that refer back to the object&#39;s parent, which means that Data::Dumper ends up dumping the whole font no matter what.</p>
+
+<p>The purpose of this module is to do just one thing: invoke Data::Dumper with a filter that skips over the &#39; PARENT&#39; element of any hash.</p>
+
+<p>To reduce output further, this module also skips over &#39; CACHE&#39; elements and any hash element whose value is a Font::TTF::Glyph or Font::TTF::Font object. (Really should make this configurable.)</p>
+
+<h1 id="See-also">See also</h1>
+
+<p><a href="../../../../../Users/admin/Documents/philip-font-optimizer/ext/Font-TTF/blib/lib/Font/TTF/Font.html">Font::TTF::Font</a></p>
+
+
+</body>
+
+</html>
+
+
