@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<!-- saved from url=(0017)http://localhost/ -->
+<script language="JavaScript" src="../../../../displayToc.js"></script>
+<script language="JavaScript" src="../../../../tocParas.js"></script>
+<script language="JavaScript" src="../../../../tocTab.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../scineplex.css">
+<title></title>
+<link rel="stylesheet" href="../../../../Active.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+  <li><a href="#METHODS">METHODS</a>
+    <ul>
+      <li><a href="#readtagsfile-filename">readtagsfile ( filename )</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<p>Font::TTF::OTTags - Utilities for TrueType/OpenType tags</p>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<pre><code>  <span class="keyword">use</span> <span class="variable">Font::TTF::OTTags</span> <span class="string">qw( %tttags %ttnames readtagsfile )</span><span class="operator">;</span>
+  
+  <span class="comment"># Look at built-in stuff:</span>
+  <span class="variable">$script_tag</span> <span class="operator">=</span> <span class="variable">$tttags</span><span class="operator">{</span><span class="string">'SCRIPT'</span><span class="operator">}{</span><span class="string">'Cypriot Syllabary'</span><span class="operator">}</span><span class="operator">;</span>
+  <span class="variable">$lang_name</span> <span class="operator">=</span> <span class="variable">$ttnames</span><span class="operator">{</span><span class="string">'LANGUAGE'</span><span class="operator">}{</span><span class="string">'AFK '</span><span class="operator">}</span>
+  
+  <span class="comment"># Read latest tags file to add to built-in definitions</span>
+  <span class="variable">readtagsfile</span> <span class="operator">(</span><span class="string">"C:\\Program Files\\Microsoft VOLT\\TAGS.txt"</span><span class="operator">);</span>
+</code></pre>
+
+<p>First-level keys to %tttags and %ttnames are:</p>
+
+<ul>
+
+<p>&#39;SCRIPT&#39; -- retrieve script tag or name</p>
+
+<p>&#39;LANGUAGE&#39; -- retrieve language tag or name</p>
+
+<p>&#39;FEATURE&#39; -- retrieve feature tag or name</p>
+
+</ul>
+
+<p>Built-in data has been derived from Microsoft&#39;s tag registry at <a href="http://www.microsoft.com/typography/otspec/ttoreg.htm">http://www.microsoft.com/typography/otspec/ttoreg.htm</a>, updated to draft v1.5 of the OpenType Spec.</p>
+
+<h1 id="METHODS">METHODS</h1>
+
+<h2 id="readtagsfile-filename">readtagsfile ( filename )</h2>
+
+<p>Read a file in the syntax of Tags.txt (included with Microsoft VOLT) to obtain additional/replacement tag definitions.</p>
+
+<p>Returns 0 if can&#39;t open the file; else 1.</p>
+
+
+</body>
+
+</html>
+
+
